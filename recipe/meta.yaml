@@ -16,7 +16,8 @@ build:
 requirements:
   build:
     - cmake
-    - make  # [not win]
+    - make   # [not win]
+    - ninja  # [win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
