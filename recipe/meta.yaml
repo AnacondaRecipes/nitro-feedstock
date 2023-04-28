@@ -1,24 +1,22 @@
 {% set name = "nitro" %}
 {% set version = "2.7.dev6" %}
-{% set sha256 = "c3a514c9773f9ffd981e48fd5c4da2797118245b8d1a0e526553c363883450ca" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ version }}.tar.gz
   url: https://github.com/hobu/{{ name }}/archive/2.7dev-6.tar.gz
-  sha256: {{ sha256 }}
+  sha256: c3a514c9773f9ffd981e48fd5c4da2797118245b8d1a0e526553c363883450ca
 
 build:
   skip: True  # [win and vc<14]
-  number: 5
+  number: 0
 
 requirements:
   build:
     - cmake
-    - make
+    - make  # [not win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
@@ -35,9 +33,13 @@ test:
 
 about:
   home: https://github.com/hobu/nitro
-  summary: "A GIT Mirror of Nitro NITF project"
+  summary: A GIT Mirror of Nitro NITF project
+  description: A GIT Mirror of Nitro NITF project
   license: LGPL-3.0-or-later
+  license_family: LGPL
   license_file: COPYING
+  dev_url: https://github.com/hobu/nitro
+  doc_url: https://github.com/hobu/nitro
 
 extra:
   recipe-maintainers:
